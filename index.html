@@ -97,19 +97,20 @@
         transform: rotateY(180deg);
     }
 
-    /* Interaktywny napis na zaproszeniu tylnej strony */
-    .invitation .back .address {
-        position: absolute;
-        top: 60%;  /* dostosowano w procentach, zamiast cm dla responsywności */
-        left: 50%;
-        transform: translateX(-50%);
-        font-family: "Book Antiqua", serif;
-        color: #4b7810;
-        font-size: 1.5em;
-        cursor: pointer;
-        text-align: center;
-        text-decoration: underline;
-    }
+.invitation .back .address {
+    position: absolute;
+    top: 60%;  /* możesz dostosować wysokość */
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Book Antiqua", serif;
+    color: #4b7810;
+    font-size: 1.5em;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: underline;
+}
+
+
 
 </style>
 </head>
@@ -124,11 +125,11 @@
 <!-- Dialog -->
 <div class="dialog-container" id="dialogContainer">
     <div class="dialog">
-        <p><em>pewnego razu w Warszawie</em></p>
+        <p><em>Pewnego razu w Warszawie</em></p>
         <p><strong>Michał:</strong> Ej, kurna, co robimy z tym ślubem?</p>
         <p><strong>Karina:</strong> Ja bym mogła wziąć z Tobą ślub, ale w lesie.</p>
         <p><strong>Michał:</strong> O. Dobra.</p>
-        <p> Także ten...</p>
+        <p><em>Także ten...</em></p>
     </div>
     <div class="next-button" onclick="showInvitation()">
         <div class="arrow">⬇️</div>
@@ -136,15 +137,18 @@
     </div>
 </div>
 
-<!-- Dwustronne zaproszenie -->
-<div class="invitation-container" id="invitationContainer">
-    <div class="invitation" onclick="this.classList.toggle('flipped')">
-        <img class="front" src="zaproszenie1.jpg" alt="Zaproszenie strona 1">
-        <img class="back" src="zaproszenie2.jpg" alt="Zaproszenie strona 2">
-        <div class="address" onclick="event.stopPropagation(); window.open('https://www.google.com/maps/place/Siedlisko+Polanka/@52.2749409,21.6505218,17z/data=!3m1!4b1!4m6!3m5!1s0x471f25e3b6946adf:0x6c249ceeb6404de8!8m2!3d52.2749409!4d21.6505218!16s%2Fg%2F11k6ytxbzk?entry=ttu&g_ep=EgoyMDI1MDgxMS4wIKXMDSoASAFQAw%3D%3D','_blank')">
-            Adres: Wola Polska 56, 05-306 Wola Polska
-        </div>
+<div class="invitation" onclick="this.classList.toggle('flipped')">
+    <img class="front" src="zaproszenie1.jpg" alt="Zaproszenie strona 1">
+    <img class="back" src="zaproszenie2.jpg" alt="Zaproszenie strona 2">
+    
+    <!-- Napis interaktywny na tylnej stronie -->
+    <div class="address" 
+         onclick="event.stopPropagation(); 
+                  window.open('https://www.google.com/maps/place/Siedlisko+Polanka/@52.2749409,21.6505218,17z/data=!3m1!4b1!4m6!3m5!1s0x471f25e3b6946adf:0x6c249ceeb6404de8!8m2!3d52.2749409!4d21.6505218!16s%2Fg%2F11k6ytxbzk?entry=ttu&g_ep=EgoyMDI1MDgxMS4wIKXMDSoASAFQAw%3D%3D','_blank')">
+        Adres: Wola Polska 56, 05-306 Wola Polska
     </div>
+</div>
+
 </div>
 
 <script>
@@ -153,16 +157,10 @@ function showInvitation() {
     document.getElementById('invitationContainer').style.display = 'flex';
 }
 
-// Interaktywny ruch tła według myszki
-const background = document.querySelector('.background-video');
-document.addEventListener('mousemove', e => {
-    const x = (e.clientX / window.innerWidth - 0.5) * 30;
-    const y = (e.clientY / window.innerHeight - 0.5) * 30;
-    background.style.transform = `translate(${-x}px, ${-y}px)`;
-});
 
 </script>
 
 </body>
 </html>
+
 
