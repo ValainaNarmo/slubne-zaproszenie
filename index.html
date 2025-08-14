@@ -60,42 +60,42 @@
         50% { transform: translateY(-15px); }
     }
 
-    /* Dwustronne zaproszenie */
-    .invitation-container {
-        display: none;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        perspective: 1500px;
-    }
+/* Dwustronne zaproszenie */
+.invitation-container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    perspective: 1500px;
+}
 
-    .invitation {
-        width: 300px;
-        height: 400px;
-        cursor: pointer;
-        transform-style: preserve-3d;
-        transition: transform 1s;
-        position: relative;
-    }
+.invitation {
+    width: 500px;      /* większa szerokość */
+    height: 650px;     /* większa wysokość */
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    position: relative;
+}
 
-    .invitation.flipped {
-        transform: rotateY(180deg);
-    }
+.invitation.flipped {
+    transform: rotateY(180deg);
+}
 
-    .invitation img {
-        width: 100%;
-        height: 100%;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        backface-visibility: hidden;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
+.invitation img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 
-    .invitation .back {
-        transform: rotateY(180deg);
-    }
+.invitation .back {
+    transform: rotateY(180deg);
+}
 </style>
 </head>
 <body>
@@ -144,3 +144,4 @@ document.addEventListener('mousemove', e => {
 
 </body>
 </html>
+
