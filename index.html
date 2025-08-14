@@ -37,9 +37,22 @@
     }
 
     .dialog {
-        font-size: 2em;
         margin-bottom: 50px;
         line-height: 1.5;
+    }
+
+    .dialog .intro,
+    .dialog .outro {
+        font-size: 2em;
+    }
+
+    .dialog-middle {
+        font-size: 1.4em;
+        margin: 25px 0;
+    }
+
+    .dialog-middle p {
+        margin: 12px 0;
     }
 
     .next-button {
@@ -96,21 +109,17 @@
         transform: rotateY(180deg);
     }
 
-    /* 📱 Styl dla telefonów */
-    @media screen and (max-width: 768px) {
-        .dialog {
-            font-size: 1.4em;
-            margin-bottom: 30px;
-        }
-
-        .invitation {
-            width: 90vw;
-            height: auto;
-        }
-
-        .invitation img {
-            height: auto;
-        }
+    .invitation .back .address {
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: "Book Antiqua", serif;
+        color: #4b7810;
+        font-size: 1.5em;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: underline;
     }
 </style>
 </head>
@@ -125,11 +134,15 @@
 <!-- Dialog -->
 <div class="dialog-container" id="dialogContainer">
     <div class="dialog">
-        <p><em>Pewnego razu na warszawskiej Ochocie...</em></p>
-        <p><strong>Michał:</strong> Ej, kurna, co robimy z tym ślubem?</p>
-        <p><strong>Karina:</strong> Ja bym mogła wziąć z Tobą ślub, ale w lesie.</p>
-        <p><strong>Michał:</strong> O. Dobra.</p>
-        <p><em>Także ten...</em></p>
+        <p class="intro"><em>Pewnego razu na warszawskiej Ochocie...</em></p>
+        
+        <div class="dialog-middle">
+            <p><strong>Michał:</strong> Ej, kurna, co robimy z tym ślubem?</p>
+            <p><strong>Karina:</strong> Ja bym mogła wziąć z Tobą ślub, ale w lesie.</p>
+            <p><strong>Michał:</strong> O. Dobra.</p>
+        </div>
+
+        <p class="outro"><em>Także ten...</em></p>
     </div>
     <div class="next-button" onclick="showInvitation()">
         <div class="arrow">⬇️</div>
@@ -137,11 +150,36 @@
     </div>
 </div>
 
+<style>
+/* Intro i outro */
+.dialog .intro,
+.dialog .outro {
+    font-size: 2em;
+    opacity: 0.7; /* delikatna przezroczystość */
+    text-align: center;
+}
+
+/* Dialog środkowy - wyrównanie do lewej z marginesem */
+.dialog-middle {
+    font-size: 1.4em;
+    margin: 25px 0;
+    text-align: left;
+    padding-left: 15px;   /* odstep od lewej krawędzi ekranu */
+    padding-right: 15px;  /* odstep od prawej krawędzi ekranu */
+}
+
+.dialog-middle p {
+    margin: 12px 0;
+}
+</style>
+
 <!-- Dwustronne zaproszenie -->
 <div class="invitation-container" id="invitationContainer">
     <div class="invitation" onclick="this.classList.toggle('flipped')">
         <img class="front" src="zaproszenie1.jpg" alt="Zaproszenie strona 1">
         <img class="back" src="zaproszenie2.jpg" alt="Zaproszenie strona 2">
+        
+
     </div>
 </div>
 
