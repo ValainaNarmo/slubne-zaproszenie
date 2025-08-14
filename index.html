@@ -9,7 +9,7 @@
     body, html {
         height: 100%;
         font-family: "Book Antiqua", serif;
-        overflow: hidden;
+        overflow-x: hidden;
         color: white;
     }
 
@@ -45,7 +45,7 @@
     .dialog .intro,
     .dialog .outro {
         font-size: 2em;
-        opacity: 0.7; /* delikatna przezroczystość */
+        opacity: 0.7;
         text-align: center;
     }
 
@@ -54,8 +54,7 @@
         font-size: 1.4em;
         margin: 25px 0;
         text-align: left;
-        padding-left: 15px;   /* odstęp od lewej krawędzi ekranu */
-        padding-right: 15px;  /* odstęp od prawej krawędzi ekranu */
+        padding: 0 15px;
     }
 
     .dialog-middle p {
@@ -79,20 +78,20 @@
         50% { transform: translateY(-15px); }
     }
 
-    /* Dwustronne zaproszenie */
+    /* Dwustronne zaproszenie - responsywne */
     .invitation-container {
         display: none;
         justify-content: center;
         align-items: center;
         height: 100%;
         perspective: 1500px;
+        padding: 10px;
     }
 
     .invitation {
-        width: 90vw;       /* szerokość dopasowana do ekranu telefonu */
-        max-width: 500px;  /* nie większe niż desktopowe 500px */
-        height: auto;      /* wysokość dopasowuje się automatycznie */
-        max-height: 90vh;  /* nie większe niż 90% wysokości ekranu */
+        width: 100%;       /* dopasowanie do telefonu */
+        max-width: 500px;  /* limit na większych ekranach */
+        height: auto;      
         cursor: pointer;
         transform-style: preserve-3d;
         transition: transform 1s;
@@ -104,11 +103,12 @@
     }
 
     .invitation img {
-        width: 100%;       /* dopasowanie do kontenera */
-        height: auto;      /* zachowanie proporcji */
+        width: 100%;
+        height: auto;
         border-radius: 20px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         backface-visibility: hidden;
+        display: block;
         position: absolute;
         top: 0;
         left: 0;
@@ -129,6 +129,17 @@
         cursor: pointer;
         text-align: center;
         text-decoration: underline;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 600px) {
+        .dialog .intro, .dialog .outro {
+            font-size: 1.5em;
+        }
+        .dialog-middle {
+            font-size: 1.2em;
+            padding: 0 10px;
+        }
     }
 </style>
 </head>
