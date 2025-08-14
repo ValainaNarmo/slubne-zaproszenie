@@ -60,42 +60,57 @@
         50% { transform: translateY(-15px); }
     }
 
-/* Dwustronne zaproszenie */
-.invitation-container {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    perspective: 1500px;
-}
+    /* Dwustronne zaproszenie */
+    .invitation-container {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        perspective: 1500px;
+    }
 
-.invitation {
-    width: 500px;      /* większa szerokość */
-    height: 650px;     /* większa wysokość */
-    cursor: pointer;
-    transform-style: preserve-3d;
-    transition: transform 1s;
-    position: relative;
-}
+    .invitation {
+        width: 500px;      /* większa szerokość */
+        height: 650px;     /* większa wysokość */
+        cursor: pointer;
+        transform-style: preserve-3d;
+        transition: transform 1s;
+        position: relative;
+    }
 
-.invitation.flipped {
-    transform: rotateY(180deg);
-}
+    .invitation.flipped {
+        transform: rotateY(180deg);
+    }
 
-.invitation img {
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    backface-visibility: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
+    .invitation img {
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        backface-visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 
-.invitation .back {
-    transform: rotateY(180deg);
-}
+    .invitation .back {
+        transform: rotateY(180deg);
+    }
+
+    /* Interaktywny napis na zaproszeniu tylnej strony */
+    .invitation .back .address {
+        position: absolute;
+        top: 60%;  /* dostosowano w procentach, zamiast cm dla responsywności */
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: "Book Antiqua", serif;
+        color: #4b7810;
+        font-size: 1.5em;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: underline;
+    }
+
 </style>
 </head>
 <body>
@@ -121,12 +136,14 @@
     </div>
 </div>
 
-
 <!-- Dwustronne zaproszenie -->
 <div class="invitation-container" id="invitationContainer">
     <div class="invitation" onclick="this.classList.toggle('flipped')">
-        <img class="front" src="zaproszenie.jpg" alt="Zaproszenie strona 1">
+        <img class="front" src="zaproszenie1.jpg" alt="Zaproszenie strona 1">
         <img class="back" src="zaproszenie2.jpg" alt="Zaproszenie strona 2">
+        <div class="address" onclick="event.stopPropagation(); window.open('https://www.google.com/maps/place/Siedlisko+Polanka/@52.2749409,21.6505218,17z/data=!3m1!4b1!4m6!3m5!1s0x471f25e3b6946adf:0x6c249ceeb6404de8!8m2!3d52.2749409!4d21.6505218!16s%2Fg%2F11k6ytxbzk?entry=ttu&g_ep=EgoyMDI1MDgxMS4wIKXMDSoASAFQAw%3D%3D','_blank')">
+            Adres: Wola Polska 56, 05-306 Wola Polska
+        </div>
     </div>
 </div>
 
@@ -147,6 +164,3 @@ document.addEventListener('mousemove', e => {
 
 </body>
 </html>
-
-
-
