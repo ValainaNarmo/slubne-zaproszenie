@@ -9,7 +9,7 @@
     body, html {
         height: 100%;
         font-family: "Book Antiqua", serif;
-        overflow-x: hidden;
+        overflow: hidden;
         color: white;
     }
 
@@ -78,20 +78,18 @@
         50% { transform: translateY(-15px); }
     }
 
-    /* Dwustronne zaproszenie - responsywne */
+    /* Dwustronne zaproszenie */
     .invitation-container {
         display: none;
         justify-content: center;
         align-items: center;
         height: 100%;
         perspective: 1500px;
-        padding: 10px;
     }
 
     .invitation {
-        width: 100%;       /* dopasowanie do telefonu */
-        max-width: 500px;  /* limit na większych ekranach */
-        height: auto;      
+        width: 500px;
+        height: 650px;
         cursor: pointer;
         transform-style: preserve-3d;
         transition: transform 1s;
@@ -104,11 +102,10 @@
 
     .invitation img {
         width: 100%;
-        height: auto;
+        height: 100%;
         border-radius: 20px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         backface-visibility: hidden;
-        display: block;
         position: absolute;
         top: 0;
         left: 0;
@@ -129,17 +126,6 @@
         cursor: pointer;
         text-align: center;
         text-decoration: underline;
-    }
-
-    /* Mobile adjustments */
-    @media (max-width: 600px) {
-        .dialog .intro, .dialog .outro {
-            font-size: 1.5em;
-        }
-        .dialog-middle {
-            font-size: 1.2em;
-            padding: 0 10px;
-        }
     }
 </style>
 </head>
