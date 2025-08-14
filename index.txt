@@ -60,7 +60,7 @@
         50% { transform: translateY(-15px); }
     }
 
-    /* Obracające się zaproszenie */
+    /* Dwustronne zaproszenie */
     .invitation-container {
         display: none;
         justify-content: center;
@@ -73,12 +73,13 @@
         width: 300px;
         height: 400px;
         cursor: pointer;
-        transition: transform 1s;
         transform-style: preserve-3d;
+        transition: transform 1s;
+        position: relative;
     }
 
-    .invitation:hover {
-        transform: rotateY(180deg) rotateX(10deg);
+    .invitation.flipped {
+        transform: rotateY(180deg);
     }
 
     .invitation img {
@@ -87,8 +88,14 @@
         border-radius: 20px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         backface-visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
 
+    .invitation .back {
+        transform: rotateY(180deg);
+    }
 </style>
 </head>
 <body>
@@ -112,10 +119,11 @@
     </div>
 </div>
 
-<!-- Zaproszenie JPG -->
+<!-- Dwustronne zaproszenie -->
 <div class="invitation-container" id="invitationContainer">
-    <div class="invitation">
-        <img src="zaproszenie.jpg" alt="Zaproszenie ślubne">
+    <div class="invitation" onclick="this.classList.toggle('flipped')">
+        <img class="front" src="zaproszenie1.jpg" alt="Zaproszenie strona 1">
+        <img class="back" src="zaproszenie2.jpg" alt="Zaproszenie strona 2">
     </div>
 </div>
 
